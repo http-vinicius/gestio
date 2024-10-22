@@ -1,0 +1,32 @@
+.section {
+  @apply bg-cover bg-no-repeat bg-center h-[100vh] content-center;
+  background-image: url('../../public/background-login.svg');
+}
+
+.login {
+  @apply max-w-lg mx-auto flex justify-center;
+}
+
+.card {
+  @apply w-[475px] px-4 pb-10;
+}
+
+.titleLogin {
+  @apply flex justify-center text-7xl font-bold items-center;
+}
+
+.description {
+  @apply text-xl text-center w-80 mx-auto;
+}
+
+.content {
+  @apply mx-auto;
+}
+
+.footerLogin {
+  @apply justify-center;
+}
+
+.botaoLogin {
+  @apply w-full h-14;
+}
