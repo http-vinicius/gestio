@@ -1,0 +1,12 @@
+.drawer {
+  @apply transition-all duration-300 z-50 py-2 pt-4 fixed inset-y-0 left-0 lg:block hidden;
+  border: 1px solid hsl(var(--border));
+}
+
+.drawerButon {
+  @apply absolute opacity-100 top-5 bg-primary  transform transition-transform min-w-6 w-7 h-7 duration-500 -right-[14px] rounded-full;
+}
+
+.iconButton {
+  @apply text-background size-3;
+}

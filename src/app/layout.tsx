@@ -17,9 +17,9 @@ export const nunito = Nunito({
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html suppressHydrationWarning lang="pt-br">
       <body

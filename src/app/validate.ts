@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const validationSchema = z
   .object({
     email: z.string().email({ message: 'Insira um email válido ' }),
-    senha: z.string().min(6, { message: 'Senha Obrigatória' }).max(20),
+    senha: z.string().min(1, { message: 'Senha Obrigatória' }).max(20),
   })
   .required();
 

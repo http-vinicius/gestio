@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -16,19 +17,21 @@ import {
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 
 import logoLogin from '../../public/logo.svg';
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import styles from './page.module.css';
 import { LoginFormValues, validationSchema } from './validate';
+
+import styles from './page.module.css';
+import Link from 'next/link';
 
 export default function Home() {
   const form = useForm<LoginFormValues>({
@@ -69,7 +72,7 @@ export default function Home() {
                   control={form.control}
                   name="email"
                   render={({ field, fieldState }) => (
-                    <FormItem>
+                    <FormItem className="pb-3">
                       <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input {...field} />
@@ -82,7 +85,7 @@ export default function Home() {
                   control={form.control}
                   name="senha"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="pb-3">
                       <FormLabel>Senha</FormLabel>
                       <FormControl>
                         <Input {...field} type="password" />
@@ -93,9 +96,10 @@ export default function Home() {
                 />
               </CardContent>
               <CardFooter className={styles.footerLogin}>
-                <Button type="submit" className={styles.botaoLogin} color="">
-                  ENTRAR
+                <Button type="submit" className={styles.botaoLogin}>
+                  <Link href="/dashboard">ENTRAR</Link>
                 </Button>
+                <FormDescription>Esqueceu a senha?</FormDescription>
               </CardFooter>
             </form>
           </Form>

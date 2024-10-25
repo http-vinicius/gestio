@@ -24,7 +24,7 @@
 }
 
 .footerLogin {
-  @apply justify-center;
+  @apply flex-col;
 }
 
 .botaoLogin {
