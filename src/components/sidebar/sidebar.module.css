@@ -4,7 +4,7 @@
 }
 
 .drawerButon {
-  @apply absolute opacity-100 top-5 bg-primary  transform transition-transform min-w-6 w-7 h-7 duration-500 -right-[14px] rounded-full;
+  @apply absolute opacity-100 top-5 bg-primary transform transition-transform min-w-6 w-6 h-6 duration-500 -right-3 rounded-full;
 }
 
 .iconButton {

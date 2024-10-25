@@ -20,28 +20,27 @@ const Sidebar: React.FC<SidebarProps> = ({
 }: SidebarProps) => {
   const handleOpen = useCallback(() => setOpen(!isOpen), [setOpen, isOpen]);
 
-  const containerSize = isOpen ? 'w-60' : 'w-20';
+  const containerSize = isOpen ? 'w-60' : 'w-24';
   const justifyItens = isOpen ? 'items-start' : 'items-center';
   const buttonRotation = isOpen ? 'rotate-180' : 'rotate-0';
 
   return (
-    <nav
-      className={`${styles.drawer} ${containerSize} ${styles.navItemBorder}`}
-    >
-      <Button
-        onClick={handleOpen}
-        className={`${styles.drawerButon} ${buttonRotation}`}
-        size="sm"
-      >
-        <ChevronRight className={styles.iconButton} />
-      </Button>
+    <nav className={`${styles.drawer} ${containerSize}`}>
       <FlexBox
+        className="p-2"
         direction="flex-col"
         alignItems={justifyItens}
         spacing={2}
         px={2}
         py={1}
       >
+        <Button
+          onClick={handleOpen}
+          className={`${styles.drawerButon} ${buttonRotation}`}
+          size="sm"
+        >
+          <ChevronRight className={styles.iconButton} />
+        </Button>
         {children}
       </FlexBox>
     </nav>
