@@ -1,7 +1,7 @@
 .navItem {
-  @apply w-[100%] gap-1 pt-2 flex align-middle;
+  @apply w-[100%] gap-1 p-2 pl-3 flex align-middle rounded hover:bg-slate-200;
 }
 
 .nome {
-  @apply text-sm;
+  @apply text-base flex items-center;
 }

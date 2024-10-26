@@ -20,7 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 }: SidebarProps) => {
   const handleOpen = useCallback(() => setOpen(!isOpen), [setOpen, isOpen]);
 
-  const containerSize = isOpen ? 'w-60' : 'w-24';
+  const containerSize = isOpen ? 'w-48' : 'w-24';
   const justifyItens = isOpen ? 'items-start' : 'items-center';
   const buttonRotation = isOpen ? 'rotate-180' : 'rotate-0';
 
@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <FlexBox
         className="p-2"
         direction="flex-col"
-        alignItems={justifyItens}
+        alignItems='items-center'
         spacing={2}
         px={2}
         py={1}

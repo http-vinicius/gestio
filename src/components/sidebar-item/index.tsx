@@ -17,7 +17,7 @@ type SidebarItemProps = {
 export default function SidebarItem({ nome, icon: Icon }: SidebarItemProps) {
   return (
     <Link href="#" color="primary" className={styles.navItem}>
-      <Icon className="size-8" />
+      <Icon className="size-6" />
       <small className={styles.nome}>{nome}</small>
     </Link>
   );

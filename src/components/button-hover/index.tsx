@@ -1,4 +1,5 @@
-import styles from './button-hover.module.css'
+import Link from 'next/link';
+import styles from './button-hover.module.css';
 
 type ButtonHoverProps = {
   children: React.ReactNode;
@@ -6,8 +7,8 @@ type ButtonHoverProps = {
 
 export default function ButtonHover({ children }: ButtonHoverProps) {
   return (
-    <a href="#" className={styles.hover}>
+    <Link href="#" className={styles.hover}>
       {children}
-    </a>
+    </Link>
   );
 }

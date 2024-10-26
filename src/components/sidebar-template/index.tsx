@@ -4,12 +4,9 @@ import { useState } from 'react';
 
 import routes from '@/config/routes';
 
-import { Button } from '@/components/ui/button';
-
 import Sidebar from '../sidebar';
 import SidebarItem from '../sidebar-item';
 
-import styles from './sidebar-template.module.css';
 import ButtonHover from '../button-hover';
 
 type SidebarTemplateProps = {
@@ -26,8 +23,8 @@ export default function SidebarTemplate({ children }: SidebarTemplateProps) {
       <Sidebar isOpen={open} setOpen={setOpen}>
         {!open
           ? routes.map((item) => (
-              <ButtonHover>
-                <item.icon className="size-8" />
+              <ButtonHover key={item.id}>
+                <item.icon className="size-6" />
               </ButtonHover>
             ))
           : routes.map((item) => (
