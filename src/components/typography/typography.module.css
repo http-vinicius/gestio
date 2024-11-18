@@ -1,0 +1,3 @@
+.fonteFormatada {
+  @apply font-semibold leading-none tracking-tight;
+}

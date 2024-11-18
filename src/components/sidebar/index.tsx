@@ -3,8 +3,11 @@
 import React, { useCallback } from 'react';
 
 import { ChevronRight } from 'lucide-react';
+
+import Image from 'next/image';
 import FlexBox from '../flexbox';
 import { Button } from '../ui/button';
+import logoImg from '../../../public/logo.svg';
 import styles from './sidebar.module.css';
 
 type SidebarProps = {
@@ -21,7 +24,6 @@ const Sidebar: React.FC<SidebarProps> = ({
   const handleOpen = useCallback(() => setOpen(!isOpen), [setOpen, isOpen]);
 
   const containerSize = isOpen ? 'w-48' : 'w-24';
-  const justifyItens = isOpen ? 'items-start' : 'items-center';
   const buttonRotation = isOpen ? 'rotate-180' : 'rotate-0';
 
   return (
@@ -29,11 +31,18 @@ const Sidebar: React.FC<SidebarProps> = ({
       <FlexBox
         className="p-2"
         direction="flex-col"
-        alignItems='items-center'
+        alignItems="items-center"
         spacing={2}
         px={2}
         py={1}
       >
+        <Image
+          src={logoImg}
+          alt="logo"
+          width={45}
+          height={45}
+          className="pb-3"
+        />
         <Button
           onClick={handleOpen}
           className={`${styles.drawerButon} ${buttonRotation}`}

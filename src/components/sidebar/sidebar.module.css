@@ -1,5 +1,5 @@
 .drawer {
-  @apply transition-all duration-300 z-50 py-2 pt-4 fixed inset-y-0 left-0 lg:block hidden;
+  @apply transition-all duration-300 z-50 py-2 fixed inset-y-0 left-0 lg:block hidden;
   border: 1px solid hsl(var(--border));
 }
 

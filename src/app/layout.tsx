@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
+
 import { ThemeProvider } from 'next-themes';
 import { Nunito } from 'next/font/google';
 import './globals.css';
+
+export const nunito = Nunito({
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -10,10 +15,6 @@ export const metadata: Metadata = {
     icon: '/logo.svg',
   },
 };
-
-export const nunito = Nunito({
-  subsets: ['latin'],
-});
 
 export default function RootLayout({
   children,
