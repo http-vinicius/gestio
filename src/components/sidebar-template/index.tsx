@@ -19,7 +19,7 @@ export default function SidebarTemplate({ children }: SidebarTemplateProps) {
   const containerMargin = open ? 'lg:ml-44' : 'lg:ml-20';
 
   return (
-    <div className="flex flex-row min-h-screen lg:pt-6 lg:pl-12 lg:pr-8 sm: p-2">
+    <div className="flex flex-row min-h-screen lg:pt-1 lg:pl-12 lg:pr-8 sm: p-2">
       <Sidebar isOpen={open} setOpen={setOpen}>
         {!open
           ? routes.map((item) => (

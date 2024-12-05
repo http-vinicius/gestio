@@ -10,7 +10,7 @@ import { dadosMockHistorico } from './utils';
 
 export default function Dashboard() {
   return (
-    <section>
+    <section className="pt-5">
       <div className="grid lg:grid-cols-4 md:grid-cols-4 gap-2 sm:grid-cols-1">
         <Card
           title="Faturamento total"

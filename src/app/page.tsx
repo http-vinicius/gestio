@@ -43,7 +43,7 @@ export default function Home() {
   });
 
   const handleLogin = useCallback((values: LoginFormValues) => {
-    console.log(values);
+    // console.log(values);
   }, []);
 
   return (

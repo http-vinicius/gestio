@@ -1,6 +1,6 @@
 import { Dayjs } from 'dayjs';
-import Day from '../Day';
 import React from 'react';
+import Day from '../Day';
 
 type MonthProps = {
   month: Dayjs[][];
@@ -12,7 +12,7 @@ export default function Month({ month }: MonthProps) {
       {month.map((row, i) => (
         <React.Fragment key={i}>
           {row.map((day, idx) => (
-            <Day day={day} key={idx} />
+            <Day day={day} key={idx} rowIdx={i} />
           ))}
         </React.Fragment>
       ))}
