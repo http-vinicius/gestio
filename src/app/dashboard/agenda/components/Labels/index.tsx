@@ -10,7 +10,7 @@ export default function Labels() {
     <>
       <p className="text-gray-500 font-bold mt-10">Label</p>
       {labels.map(({ label: lbl, checked, accent, titleColor }, idx) => (
-        <label key={idx} className="items-center mt-3 block">
+        <label key={idx} className="items-center mt-3 flex">
           <input
             type="checkbox"
             checked={checked}
