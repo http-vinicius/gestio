@@ -1,10 +1,13 @@
-import { Dayjs } from 'dayjs';
 import React from 'react';
+
+import { Dayjs } from 'dayjs';
 import { Action, Event } from '../ContextWrapper/utils';
 
 export type LabelType = {
   label: string;
   checked: boolean;
+  accent: string;
+  titleColor: string;
 };
 
 type GlobalContextTypes = {
@@ -23,6 +26,7 @@ type GlobalContextTypes = {
   labels: LabelType[];
   setLabels: (value: LabelType[]) => void;
   updateLabel: (value: LabelType) => void;
+  filteredEvents: Event[];
 };
 
 const GlobalContext = React.createContext<GlobalContextTypes>({
@@ -41,6 +45,7 @@ const GlobalContext = React.createContext<GlobalContextTypes>({
   labels: [],
   setLabels: () => {},
   updateLabel: () => {},
+  filteredEvents: [],
 });
 
 export default GlobalContext;

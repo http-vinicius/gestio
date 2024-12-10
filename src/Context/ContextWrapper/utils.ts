@@ -1,6 +1,21 @@
+export type EventTypes = {
+  accent: string;
+  color: string;
+  day: number;
+  description: number;
+  label: string;
+  title: string;
+};
+
 export type Event = {
   id: string | number;
-  [key: string]: any;
+  accent: string;
+  color: string;
+  day?: number;
+  description?: string;
+  label: string;
+  title: string;
+  titleColor?: string;
 };
 
 export type Action = {

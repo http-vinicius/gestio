@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useMemo, useReducer, useState } from 'react';
 
 import dayjs from 'dayjs';
 import GlobalContext, { LabelType } from '../GlobalContext';
@@ -21,6 +21,15 @@ export default function ContextWrapper(props: any) {
     initEvents
   );
 
+  const filteredEvents = useMemo(() => {
+    return savedEvents.filter((evt) =>
+      labels
+        .filter((lbl) => lbl.checked)
+        .map((lbl) => lbl.label)
+        .includes(evt.label)
+    );
+  }, [savedEvents, labels]);
+
   useEffect(() => {
     localStorage.setItem('savedEvents', JSON.stringify(savedEvents));
   }, [savedEvents]);
@@ -28,12 +37,15 @@ export default function ContextWrapper(props: any) {
   useEffect(() => {
     setLabels((prevLabels) => {
       return [...new Set(savedEvents.map((evt) => evt.label))].map((label) => {
-        const currentLabel = prevLabels?.find(
-          (lbl: any) => lbl.label === label
-        );
+        const currentLabel = prevLabels?.find((lbl) => lbl.label === label);
+        const currentEvent = savedEvents.find((evt) => evt.label === label);
+        const currentAccent = currentEvent ? currentEvent.accent : '';
+
         return {
           label,
           checked: currentLabel ? currentLabel.checked : true,
+          accent: currentAccent,
+          titleColor: currentEvent?.titleColor ?? '',
         };
       });
     });
@@ -45,7 +57,13 @@ export default function ContextWrapper(props: any) {
     }
   }, [smallCalendarMonth]);
 
-  const updateLabel = (label: any) => {
+  useEffect(() => {
+    if (!showEventModal) {
+      setSelectedEvent(null);
+    }
+  }, [showEventModal]);
+
+  const updateLabel = (label: LabelType) => {
     setLabels(labels.map((lbl) => (lbl.label === label.label ? label : lbl)));
   };
 
@@ -67,6 +85,7 @@ export default function ContextWrapper(props: any) {
         labels,
         setLabels,
         updateLabel,
+        filteredEvents,
       }}
     >
       {props.children}

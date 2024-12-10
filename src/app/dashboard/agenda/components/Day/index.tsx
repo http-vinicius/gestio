@@ -1,9 +1,10 @@
 'use client';
 
+import { useCallback, useContext, useEffect, useState } from 'react';
+
 import { Event } from '@/Context/ContextWrapper/utils';
 import GlobalContext from '@/Context/GlobalContext';
 import dayjs, { Dayjs } from 'dayjs';
-import { useCallback, useContext, useEffect, useState } from 'react';
 
 type DayProps = {
   day: Dayjs;
@@ -12,15 +13,19 @@ type DayProps = {
 
 export default function Day({ day, rowIdx }: DayProps) {
   const [dayEvents, setDayEvents] = useState<Event[]>([]);
-  const { setDaySelected, setShowEventModal, savedEvents, setSelectedEvent } =
-    useContext(GlobalContext);
+  const {
+    setDaySelected,
+    setShowEventModal,
+    setSelectedEvent,
+    filteredEvents,
+  } = useContext(GlobalContext);
 
   useEffect(() => {
-    const events = savedEvents.filter(
+    const events = filteredEvents.filter(
       (evt) => dayjs(evt.day).format('DD-MM-YY') === day.format('DD-MM-YY')
     );
     setDayEvents(events);
-  }, [savedEvents, day]);
+  }, [filteredEvents, day]);
 
   const getCurrentDayClass = useCallback(() => {
     return day.format('DD-MM-YY') === dayjs().format('DD-MM-YY')

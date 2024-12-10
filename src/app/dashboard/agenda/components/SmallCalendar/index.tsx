@@ -10,7 +10,6 @@ export default function SmallCalendar() {
     setSmallCalendarMonth,
     setDaySelected,
     daySelected,
-    smallCalendarMonth,
   } = useContext(GlobalContext);
   const [currentMonthIdx, setCurrentMonthIdx] = useState(dayjs().month());
   const [currentMonth, setCurrentMonth] = useState(getMonth());

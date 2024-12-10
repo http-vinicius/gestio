@@ -13,35 +13,42 @@ import {
   X,
 } from 'lucide-react';
 
-// export type ClassesType = {
-//   primary: string;
-//   secon
-// }
-
 const labelsClasses = [
   {
     primary: 'bg-indigo-500',
     secondary: 'bg-indigo-200',
+    accent: 'accent-indigo-500',
+    titleColor: 'Índigo',
   },
   {
     primary: 'bg-gray-500',
     secondary: 'bg-gray-200',
+    accent: 'accent-gray-500',
+    titleColor: 'Cinza',
   },
   {
     primary: 'bg-green-500',
     secondary: 'bg-green-200',
+    accent: 'accent-green-500',
+    titleColor: 'Verde',
   },
   {
     primary: 'bg-blue-500',
     secondary: 'bg-blue-200',
+    accent: 'accent-blue-500',
+    titleColor: 'Azul',
   },
   {
     primary: 'bg-red-500',
     secondary: 'bg-red-200',
+    accent: 'accent-red-500',
+    titleColor: 'Vermelho',
   },
   {
     primary: 'bg-purple-500',
     secondary: 'bg-purple-200',
+    accent: 'accent-purple-500',
+    titleColor: 'Roxo',
   },
 ];
 
@@ -54,7 +61,7 @@ export default function EventModal() {
   );
   const [selectedLabel, setSelectedLabel] = useState(
     selectedEvent
-      ? labelsClasses.find((lbl) => lbl === selectedEvent.label)
+      ? labelsClasses.find((lbl) => lbl.primary === selectedEvent.color)
       : labelsClasses[0]
   );
 
@@ -63,8 +70,10 @@ export default function EventModal() {
     const calendarEvent = {
       title,
       description,
-      label: selectedLabel?.primary,
-      color: selectedLabel?.secondary,
+      label: selectedLabel?.primary ?? '',
+      color: selectedLabel?.secondary ?? '',
+      titleColor: selectedLabel?.titleColor ?? '',
+      accent: selectedLabel?.accent ?? '',
       day: daySelected?.valueOf(),
       id: selectedEvent ? selectedEvent.id : Date.now(),
     };
