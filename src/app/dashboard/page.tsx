@@ -5,13 +5,23 @@ import Information from '@/components/information';
 import Typography from '@/components/typography';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
+import Grid from '@/components/grid';
 import Chart from './components/Chart';
 import { dadosMockHistorico } from './utils';
+import { Box } from '@/components/box';
 
 export default function Dashboard() {
   return (
     <section className="pt-5">
-      <div className="grid lg:grid-cols-4 md:grid-cols-4 gap-2 sm:grid-cols-1">
+      <Box className="pb-5">
+        <Typography variant="subtitle1">Dashboard</Typography>
+      </Box>
+      <Grid
+        lg="lg:grid-cols-4"
+        md="md:grid-cols-4"
+        sm="sm:grid-cols-1"
+        styles="gap-2"
+      >
         <Card
           title="Faturamento total"
           description="Faturamento Total em 30 Dias"
@@ -27,8 +37,13 @@ export default function Dashboard() {
         <Card title="Percentual comissão">
           <Typography variant="subtitle2">70%</Typography>
         </Card>
-      </div>
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-2 sm:grid-cols-1 pt-2">
+      </Grid>
+      <Grid
+        lg="lg:grid-cols-2"
+        md="md:grid-cols-2"
+        sm="sm:grid-cols-1"
+        styles="gap-2 pt-2"
+      >
         <Card title="Estatísticas" description="Relação de ganhos x gastos">
           <Chart />
         </Card>
@@ -49,7 +64,7 @@ export default function Dashboard() {
             </div>
           ))}
         </Card>
-      </div>
+      </Grid>
     </section>
   );
 }
