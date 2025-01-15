@@ -1,5 +1,6 @@
 'use client';
 
+import { ReactElement, ReactNode } from 'react';
 import styles from './typography.module.css';
 
 export type VariantTypes = 'subtitle1' | 'subtitle2' | 'body1' | 'body2';
@@ -7,7 +8,7 @@ export type VariantTypes = 'subtitle1' | 'subtitle2' | 'body1' | 'body2';
 type TypographyProps = {
   variant?: VariantTypes;
   className?: string;
-  children: string;
+  children: ReactNode;
 };
 
 export default function Typography({

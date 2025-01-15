@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -19,11 +20,10 @@ import { Input } from '@/components/ui/input';
 import { LoginFormValues, validationSchema } from './validate';
 
 import Typography from '@/components/typography';
-import TemplateLogin from '@/templates/template-login';
 import Link from 'next/link';
 import styles from './page.module.css';
 
-export default function Home() {
+export default function Login() {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(validationSchema),
     defaultValues: {
@@ -37,50 +37,22 @@ export default function Home() {
   }, []);
 
   return (
-    <TemplateLogin>
+    <>
       <div className="pb-5">
-        <Typography variant="subtitle1">Crie sua conta</Typography>
+        <Typography variant="subtitle1">Acesse sua conta</Typography>
       </div>
-      <div className="pb-12">
+      <div className="pb-10">
         <Typography className="white">
-          Já possui uma conta?
-          <a href="/login">
+          Não possui uma conta?
+          <a href="/">
             <span className="underline decoration-secondary text-secondary">
-              Sign in
+              Sign up
             </span>
           </a>
         </Typography>
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleLogin)}>
-          <div className={styles.nomeSobrenome}>
-            <FormField
-              control={form.control}
-              name="nome"
-              render={({ field, fieldState }) => (
-                <FormItem className="pb-3 w-[50vh]">
-                  <FormLabel className="font-bold">Nome</FormLabel>
-                  <FormControl>
-                    <Input {...field} type="text" />
-                  </FormControl>
-                  <FormMessage>{fieldState.error?.message}</FormMessage>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="sobrenome"
-              render={({ field }) => (
-                <FormItem className="pb-3 w-[50vh]">
-                  <FormLabel className="font-bold">Sobrenome</FormLabel>
-                  <FormControl>
-                    <Input {...field} type="text" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
           <FormField
             control={form.control}
             name="email"
@@ -98,7 +70,7 @@ export default function Home() {
             control={form.control}
             name="senha"
             render={({ field }) => (
-              <FormItem className="pb-3">
+              <FormItem className="pb-10">
                 <FormLabel className="font-bold">Senha</FormLabel>
                 <FormControl>
                   <Input {...field} type="password" />
@@ -108,10 +80,13 @@ export default function Home() {
             )}
           />
           <Button type="submit" className={styles.botaoLogin}>
-            <Link href="/dashboard">Criar</Link>
+            <Link href="/dashboard">Entrar</Link>
           </Button>
+          <FormDescription className="text-center">
+            Esqueceu a senha?
+          </FormDescription>
         </form>
       </Form>
-    </TemplateLogin>
+    </>
   );
 }

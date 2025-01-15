@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="pt-br">
       <body
-        className={`${nunito.className} antialiased`}
+        className={`${nunito.className} antialiased bg-background`}
         suppressHydrationWarning
       >
         <ThemeProvider

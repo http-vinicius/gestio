@@ -7,10 +7,13 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // primary: '#F6F4F0',
+  //   secondary: '#2E5077',
+  //   tertiary: '#79D7BE',
   theme: {
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
+        background: '#F6F4F0',
         foreground: 'hsl(var(--foreground))',
         card: {
           DEFAULT: 'hsl(var(--card))',
@@ -21,12 +24,15 @@ const config: Config = {
           foreground: 'hsl(var(--popover-foreground))',
         },
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
+          DEFAULT: '#2E5077',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
+          DEFAULT: '#4DA1A9',
           foreground: 'hsl(var(--secondary-foreground))',
+        },
+        tertiary: {
+          DEFAULT: '#79D7BE',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
