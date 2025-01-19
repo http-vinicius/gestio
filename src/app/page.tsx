@@ -20,7 +20,9 @@ import { LoginFormValues, validationSchema } from './validate';
 
 import Typography from '@/components/typography';
 import TemplateLogin from '@/templates/template-login';
+import 'dotenv/config';
 import Link from 'next/link';
+import createUser from '../services/CreateUser';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -29,12 +31,22 @@ export default function Home() {
     defaultValues: {
       email: '',
       senha: '',
+      nome: '',
+      sobrenome: '',
     },
   });
 
-  const handleLogin = useCallback((values: LoginFormValues) => {
-    // console.log(values);
-  }, []);
+  const handleCreateAccount = useCallback(
+    async (values: LoginFormValues) => {
+      await createUser({
+        email: values.email,
+        lastname: values.sobrenome,
+        name: values.nome,
+        password: values.senha,
+      });
+    },
+    [createUser]
+  );
 
   return (
     <TemplateLogin>
@@ -52,7 +64,7 @@ export default function Home() {
         </Typography>
       </div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleLogin)}>
+        <form onSubmit={form.handleSubmit(handleCreateAccount)}>
           <div className={styles.nomeSobrenome}>
             <FormField
               control={form.control}
@@ -108,7 +120,7 @@ export default function Home() {
             )}
           />
           <Button type="submit" className={styles.botaoLogin}>
-            <Link href="/dashboard">Criar</Link>
+            <Link href="/">Criar</Link>
           </Button>
         </form>
       </Form>

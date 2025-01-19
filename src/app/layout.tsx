@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 import { ThemeProvider } from 'next-themes';
 import { Nunito } from 'next/font/google';
+import PrivateRoute from './components/PrivateRoute';
+import { AuthProvider } from './contexts/AuthContext';
 import './globals.css';
 
 export const nunito = Nunito({
@@ -33,7 +35,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AuthProvider>
+            {/* <PrivateRoute> */}
+            {children}
+            {/* </PrivateRoute> */}
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

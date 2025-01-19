@@ -5,10 +5,10 @@ import Information from '@/components/information';
 import Typography from '@/components/typography';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
+import { Box } from '@/components/box';
 import Grid from '@/components/grid';
 import Chart from './components/Chart';
 import { dadosMockHistorico } from './utils';
-import { Box } from '@/components/box';
 
 export default function Dashboard() {
   return (

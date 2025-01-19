@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -21,9 +21,11 @@ import { LoginFormValues, validationSchema } from './validate';
 
 import Typography from '@/components/typography';
 import Link from 'next/link';
+import { AuthContext } from '../contexts/AuthContext';
 import styles from './page.module.css';
 
 export default function Login() {
+  const { signIn } = useContext(AuthContext);
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(validationSchema),
     defaultValues: {
@@ -32,9 +34,15 @@ export default function Login() {
     },
   });
 
-  const handleLogin = useCallback((values: LoginFormValues) => {
-    // console.log(values);
-  }, []);
+  const handleLogin = useCallback(
+    async (values: LoginFormValues) => {
+      await signIn({
+        email: values.email,
+        password: values.senha,
+      });
+    },
+    [signIn]
+  );
 
   return (
     <>
